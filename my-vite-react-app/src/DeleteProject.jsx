@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './delete.css'
 import Nav from './Nav'
+import { AuthContext } from './AuthContext'
 
 const DeleteProject = () => {
+  const {auth} = useContext(AuthContext)
   const [name, setName] = useState('')
   const handleDelete = ()=> {
     
@@ -27,7 +29,10 @@ fetch(`https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/delete/project/${name}
 
   }
   return (
-    <div className='del-wrapper'>
+    <>
+
+    
+   { auth && <div className='del-wrapper'>
      <Nav/>
     <h2>Delete project</h2>
     <div className='del-input-group'>
@@ -36,7 +41,8 @@ fetch(`https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/delete/project/${name}
     </div>
     <button onClick={handleDelete} className='del-btn'>Delete</button>
 
-    </div>
+    </div>}
+    </>
   )
 }
 

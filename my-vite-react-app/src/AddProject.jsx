@@ -1,9 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./addproject.css";
 import Nav from "./Nav";
 import axios from "axios";
+import { AuthContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
+import App from "./App";
 
 const AddProject = () => {
+  const { auth, handleLogin, err } = useContext(AuthContext);
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -11,6 +17,7 @@ const AddProject = () => {
     source_code_link: "",
     createdAt: "",
   });
+
 
   const [warning, setWarning] = useState(true);
   const [pic, setPic] = useState(undefined);
@@ -92,8 +99,11 @@ const AddProject = () => {
       console.log(error);
     }
   };
+  const n = true
   return (
-    <div className="ap-wrapper">
+    <>
+
+    { auth ? <div className="ap-wrapper">
       <Nav />
       <h1>Project Details</h1>
       <form className="addproject">
@@ -157,6 +167,9 @@ const AddProject = () => {
         </button>
       </form>
     </div>
+    : <App/>
+}
+    </>
   );
 };
 export default AddProject;

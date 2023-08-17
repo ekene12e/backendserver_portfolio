@@ -1,9 +1,11 @@
-import React, {  useState } from "react";
+import React, {  useContext, useState } from "react";
 import "./addexperience.css";
 import Nav from "./Nav";
+import { AuthContext } from "./AuthContext";
 
 
 const AddExperience = () => {
+  const {auth} = useContext(AuthContext)
   const [formData, setFormData] = useState({
     company_name: "",
             title: "",
@@ -62,7 +64,7 @@ const AddExperience = () => {
   return (
     <>
    
-    <div className="ap-wrapper">
+    { auth && <div className="ap-wrapper">
     <Nav/>
       <h1>Experience Details</h1>
       <form className="AddExperience">
@@ -116,7 +118,7 @@ const AddExperience = () => {
           Submit
         </button>
       </form>
-    </div>
+    </div>}
     </>
   );
 };
