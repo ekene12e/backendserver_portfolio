@@ -15,14 +15,19 @@ body {
   align-items: center;
   gap: 10px;
   align-self: center;
+  width: 60vw;
   justify-self: center;
   flex-direction: column;
+  border-radius: 10px;
+  border-top: 1px solid rgb(19, 19, 20);
+  border-bottom: 1px solid rgb(19, 19, 20);
+  padding-bottom: 1rem;
  
 }
 .home>div>button{
   border: none;
   height: 100px;
-  width: 200px;
+  width: 15vw;
   background-color: rgb(19, 19, 20);
   border-radius: 10px;
   color: white;
@@ -42,8 +47,13 @@ a {
 
 .home-link{
   color: rgb(7, 12, 105);
-  font-size: 18px;
-  text-decoration: underline;
+  font-size: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid rgb(7, 12, 105);
+  padding: .5rem;
+  border-radius: 10px;
 }
 
 .login{
@@ -51,11 +61,6 @@ a {
   flex-direction: column;
   width: 200px;
   gap: 1.5rem;
- 
-}
-
-.login>input{
-  text-align: center;
 }
 .login>button{
   width: 100%;
@@ -64,3 +69,42 @@ a {
 .login>input{
   width: 100%;
 }
+
+input::placeholder{
+  text-align: center;
+
+}
+
+.submit{
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  background-color: rgb(57, 8, 233);
+}
+
+button{
+  border: none;
+  background-color: rgb(57, 8, 233);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+button:hover{
+  scale: 1.005;
+}
+
+@media (max-width: 767px) {
+  .links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .home{
+    width: 90vw;
+  }
+  
+  .home>div>button{
+    width: 60%;
+  }
+}
+
