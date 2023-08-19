@@ -39,28 +39,36 @@ const AddProject = () => {
       try {
         const tags = l_tags.split("#");
         await handlePicUpload();
-        const res = await fetch(
-          "https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/add/project",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: formData.name,
-              description: formData.description,
-              image: I_url,
-              source_code_link: formData.source_code_link,
-              createdAt: Date.now(),
-              tags: tags,
-            }),
-          }
-        );
+        // const res = await fetch(
+        //   "https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/add/project",
+        //   {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //       name: formData.name,
+        //       description: formData.description,
+        //       image: I_url,
+        //       source_code_link: formData.source_code_link,
+        //       createdAt: Date.now(),
+        //       tags: tags,
+        //     }),
+        //   }
+        // );
+        // const data = await res.json();
 
-        const data = await res.json();
-
-        alert(`${data.name} added successfully`);
-        window.location.reload();
+        const s = await axios.post('http://localhost:3000/add/project',{
+          name: formData.name,
+          description: formData.description,
+          image: I_url,
+          source_code_link: formData.source_code_link,
+          createdAt: Date.now(),
+          tags: tags,
+        })
+       //console.log(s)
+        alert(`${s.data.name} added successfully`);
+        // window.location.reload();
       } catch (error) {
         console.error("Error:", error);
       } finally {
@@ -73,6 +81,7 @@ const AddProject = () => {
         });
         setL_tags("");
         setPic(null);
+        imgRef.current.value = ''
       }
     }
   };

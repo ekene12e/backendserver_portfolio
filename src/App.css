@@ -51,6 +51,11 @@ a {
   flex-direction: column;
   width: 200px;
   gap: 1.5rem;
+ 
+}
+
+.login>input{
+  text-align: center;
 }
 .login>button{
   width: 100%;
