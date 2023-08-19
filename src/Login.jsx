@@ -7,18 +7,6 @@ const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const data = {
-    title: 'play',
-    name: "play",
-    icon: "play",
-    date: "play",
-    tags: [1,2,3],
-  }
-  const handlePlay = async () => {
-      const s = await axios.post('http://localhost:3000/add/play', data)
-      
-
-  }
   return (
     <div className="login">
       <input
@@ -39,7 +27,6 @@ const Login = () => {
         </small>
       )}
       <button onClick={() => handleLogin(name, password)}>Login</button>
-      <button onClick={handlePlay}>Play</button>
     </div>
   );
 };
