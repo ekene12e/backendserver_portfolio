@@ -58,7 +58,7 @@ const AddProject = () => {
         // );
         // const data = await res.json();
 
-        const s = await axios.post('http://localhost:3000/add/project',{
+        const s = await axios.post('https://portfolio-api-7o6w.onrender.com/add/project',{
           name: formData.name,
           description: formData.description,
           image: I_url,

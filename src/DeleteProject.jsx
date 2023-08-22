@@ -8,7 +8,7 @@ const DeleteProject = () => {
   const [name, setName] = useState('')
   const handleDelete = ()=> {
     
-fetch(`https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/delete/project/${name}`, {
+fetch(`https://portfolio-api-7o6w.onrender.com/delete/project/${name}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',

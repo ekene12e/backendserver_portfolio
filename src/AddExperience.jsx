@@ -23,7 +23,7 @@ const AddExperience = () => {
       const tags = l_tags.split("#");
       console.log(formData)
 
-      fetch("https://portfolio-ekene-40c3fd1f58b7.herokuapp.com/add/experience", {
+      fetch("https://portfolio-api-7o6w.onrender.com/add/experience", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
